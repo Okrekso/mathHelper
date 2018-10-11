@@ -90,8 +90,47 @@ function update() {
     for (let s = 0; s < summaries.length; s++) {
       summ += summaries[s];
     }
-    summs.push(summ);
-    console.log("FIN:", summ);
+
+    let occuracity = $("#fixRanger").val();
+    try {
+      summ = parseFloat(summ);
+      summs.push(summ.toFixed(occuracity));
+    } catch (error) {
+      console.error("unable to fix variable!");
+      summs.push(summ);
+    } 
+    function getArr(numb)
+    {
+      var arr=new Array();
+      for (let i = 0; i < numb; i++) {
+        arr[i.toString()]="викон. "+i.toString()+" події(я)";
+      }
+      return arr;
+    }
+    console.log("FIN PARAMS:",summs);
+    // plot vars
+    var plot = [{
+      x:getArr(summs.length),
+      y:summs,
+      type:'bar',
+      hoverinfo: 'all',
+      name:"",
+      hovertext:getArr(summs.length),
+      textposition:"outside"
+    }];
+    // plot layout
+    var layout = {
+      width:250, height:200,
+      margin: {
+        l: 1,
+        r: 1,
+        b: 1,
+        t: 20,
+        pad: 4
+      }
+    };
+    console.log("plot params:",plot.y,plot.x);
+    Plotly.newPlot("graph",plot,layout,{displayModeBar: false});
   }
   build(summs);
   console.log(summs);
@@ -99,4 +138,5 @@ function update() {
 function Load() {
   update();
   $("#ps").change(() => update());
+  $("#fixRanger").change(()=>update());
 }
