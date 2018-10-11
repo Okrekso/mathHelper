@@ -14,6 +14,20 @@ body
     background-repeat: no-repeat;
 }
 
+#mainBlock
+{
+    /* margin-top: auto; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#graph
+{
+    align-items: center;
+    border: 1pt black solid;
+}
+
 input
 {
     text-align: center;
@@ -69,4 +83,42 @@ p.snippet
     bottom:0;
     margin:5pt;
     color:rgba(70, 70, 70, 0.5);
+}
+
+#fixRanger
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width:100pt;
+    height:20pt;
+    background:rgb(226, 226, 226);
+}
+#fixRanger::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background:rgb(112, 112, 112);
+    width:10pt;
+    height:20pt;
+}
+
+#fixHolder
+{
+    /* margin-top: auto; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#fixHolder #values
+{
+    display:flex;
+    width:100%;
+}
+#fixHolder #values #min
+{
+    margin-right: auto;
+}
+#fixHolder #values #max
+{
+    margin-left: auto;
 }
