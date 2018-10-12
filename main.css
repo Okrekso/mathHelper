@@ -33,6 +33,11 @@ input
     text-align: center;
 }
 
+#ps.error
+{
+    color:red;
+}
+
 #backgrounder
 {
     background: rgba(255, 255, 255, 0.9);
